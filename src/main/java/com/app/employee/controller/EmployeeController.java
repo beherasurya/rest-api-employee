@@ -33,7 +33,8 @@ public class EmployeeController {
 
         return "Employee Details Created :"+
                    "Name: " +employee.getName()+" "
-                    +"ID: "+employee.getId()+" "
+                    +"AGE: "+employee.getAge()+" "
+                    +"LOCATION: "+employee.getLocation()+" "
                    +"Department:" +employee.getDepartment()+" "
                    +"Email: " +employee.getEmail();
     }
@@ -45,9 +46,11 @@ public class EmployeeController {
     }
 
     @PutMapping("/api/employee/{id}")
-    public String updateEmployeeById(@PathVariable Long id, @RequestBody Employee employee){
+    public Employee updateEmployeeById(@PathVariable Long id, @RequestBody Employee employee){
 
-        return "Employee details are updated for ID : "+id +" "+employee;
+        System.out.println("Employee details are updated for ID : "+id ) ;
+
+        return employee;
     }
 
 }
