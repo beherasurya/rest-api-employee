@@ -7,4 +7,6 @@ import com.app.employee.model.Employee;
 public interface EmployeeService {
     
     List<Employee> getEmployeeDetails();
+
+    Employee saveEmployee(Employee employee);
 }
