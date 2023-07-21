@@ -25,14 +25,14 @@ public class EmployeeController {
     @GetMapping("/employee")
     public List<Employee>  getEmployeeDetails(){
 
-        System.out.println("Employee Details API is called");
+        System.out.println("Employee Get  API is called");
         return employeeService.getEmployeeDetails();
     }
 
     @GetMapping("/employee/{id}")
     public Employee getEmployeeById(@PathVariable Long id){
 
-        System.out.println( "Employee display API is called for "+id);
+        System.out.println( "Employee GETbyID API is called for "+id);
         return employeeService.getEmployeeById(id);
     }
 
@@ -54,9 +54,9 @@ public class EmployeeController {
     @PutMapping("/employee/{id}")
     public Employee updateEmployeeById(@PathVariable Long id, @RequestBody Employee employee){
 
-        System.out.println("Employee details are updated for ID : "+id ) ;
-
-        return employee;
+        System.out.println("Employee  Update API called for ID : "+id ) ;
+        employee.setId(id);
+        return employeeService.updateEmployee(employee);
     }
 
 }
