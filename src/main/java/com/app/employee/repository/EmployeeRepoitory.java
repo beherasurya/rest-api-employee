@@ -6,6 +6,6 @@ import com.app.employee.model.Employee;
 
 public interface EmployeeRepoitory  extends JpaRepository<Employee,Long>{
 
-    
+
     
 }

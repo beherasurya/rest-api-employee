@@ -1,7 +1,7 @@
 package com.app.employee.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,16 +15,28 @@ public class EmployeeServiceImplementation implements EmployeeService {
 //   private static List<Employee> employees= new ArrayList<>();
     
     @Autowired
-    EmployeeRepoitory employeeRepoitory;
+    EmployeeRepoitory employeeRepository;
     @Override
     public List<Employee> getEmployeeDetails() {
 
-        return employeeRepoitory.findAll();
+        return employeeRepository.findAll();
     }
 
     public Employee saveEmployee(Employee employee){
 
-        return employeeRepoitory.save(employee);
+        return employeeRepository.save(employee);
+    }
+
+    @Override
+    public Employee getEmployeeById(Long id) {
+
+        Optional<Employee> employee = employeeRepository.findById(id);
+        if(employee.isPresent())
+        {
+            return employee.get();
+        }
+        throw new RuntimeException("Employee Details Not Found for ID: "+id);
+        
     }
     
 }

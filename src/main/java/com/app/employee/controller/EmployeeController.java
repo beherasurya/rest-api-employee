@@ -30,9 +30,10 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{id}")
-    public String getEmployeeById(@PathVariable Long id){
+    public Employee getEmployeeById(@PathVariable Long id){
 
-        return "Employee details are displayed "+id;
+        System.out.println( "Employee details are displayed "+id);
+        return employeeService.getEmployeeById(id);
     }
 
     
