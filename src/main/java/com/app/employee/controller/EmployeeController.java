@@ -32,7 +32,7 @@ public class EmployeeController {
     @GetMapping("/employee/{id}")
     public Employee getEmployeeById(@PathVariable Long id){
 
-        System.out.println( "Employee details are displayed "+id);
+        System.out.println( "Employee display API is called for "+id);
         return employeeService.getEmployeeById(id);
     }
 
@@ -40,14 +40,15 @@ public class EmployeeController {
     @PostMapping("/employee")
     public Employee saveEmployee(@RequestBody Employee employee){
 
-        System.out.println("Employee object Created");
+        System.out.println("Employee Create API is called");
        return employeeService.saveEmployee(employee);
     }
     
-    @DeleteMapping("/employee")
-    public String deleteEmployeeById(@RequestParam Long id){
+    @DeleteMapping("/employee/{id}")
+    public void deleteEmployeeById(@PathVariable Long id){
 
-        return "Employee details are deleted for id :"+id;
+        System.out.println("Employee delete  API called for id :"+id);
+        employeeService.deleteEmployeeById(id);
     }
 
     @PutMapping("/employee/{id}")

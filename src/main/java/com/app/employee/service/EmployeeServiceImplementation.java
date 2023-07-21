@@ -12,7 +12,7 @@ import com.app.employee.repository.EmployeeRepoitory;
 @Service
 public class EmployeeServiceImplementation implements EmployeeService {
 
-//   private static List<Employee> employees= new ArrayList<>();
+
     
     @Autowired
     EmployeeRepoitory employeeRepository;
@@ -38,5 +38,13 @@ public class EmployeeServiceImplementation implements EmployeeService {
         throw new RuntimeException("Employee Details Not Found for ID: "+id);
         
     }
+
+    @Override
+    public void deleteEmployeeById(Long id) {
+
+        employeeRepository.deleteById(id);
+
+    }
+    
     
 }
