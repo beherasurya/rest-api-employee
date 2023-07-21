@@ -2,6 +2,8 @@ package com.app.employee.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +40,7 @@ public class EmployeeController {
 
     
     @PostMapping("/employee")
-    public Employee saveEmployee(@RequestBody Employee employee){
+    public Employee saveEmployee(@Valid @RequestBody Employee employee){
 
         System.out.println("Employee Create API is called");
        return employeeService.saveEmployee(employee);
